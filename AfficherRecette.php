@@ -1,10 +1,32 @@
 <?php
 $recipes = [
-    ['Cassoulet', '[...]', 'mickael.andrieu@exemple.com', true,
+    [
+        'title' => 'Cassoulet',
+        'recipe' => 'Etape 1 : des flageolets !',
+        'author' => 'mickael.andrieu@exemple.com',
+        'is_enabled' => true,
     ],
-    ['Couscous', '[...]', 'mickael.andrieu@exemple.com', false,
+    [
+        'title' => 'Couscous',
+        'recipe' => '',
+        'author' => 'mickael.andrieu@exemple.com',
+        'is_enabled' => false,
     ],
+    [
+        'title' => 'Escalope milanaise',
+        'recipe' => 'Etape 1 : Prendre une belle escalope',
+        'author' => 'mathieu.nebra@exemple.com',
+        'is_enabled' => true,
+    ]
 ];
+
+echo " <h1> Affichage des recettes </h1>";
+
+foreach ($recipes as $recipe) {
+    if ($recipe['is_enabled'] == true) {
+        echo "<h2>" . $recipe['title'] . ' </h2>' . $recipe['recipe'] . ' <br> <em>' . $recipe['author'] . '</em><br>';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,11 +38,7 @@ $recipes = [
 
 <body>
     <ul>
-        <?php for ($lines = 0; $lines <= 1; $lines++): ?>
-            <li>
-                <?php echo $recipes[$lines][0] . ' (' . $recipes[$lines][2] . ')'; ?>
-            </li>
-        <?php endfor; ?>
+
     </ul>
 </body>
 
