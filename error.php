@@ -3,7 +3,7 @@
 $users = [
     [
         'full_name' => 'Mickaël Andrieu',
-        'email' => 'mickael.andrieu@exemple.com'
+        'email' => 'mickael.andrieu@exemple.com',
         'age' => 34,
     ],
     [
@@ -41,11 +41,11 @@ $recipes = [
         'title' => 'Salade Romaine',
         'recipe' => '',
         'author' => 'laurene.castor@exemple.com',
-        'is_enablad' => false,
+        'is_enabled' => false,
     ],
 ];
 
-function display_recipe(array $recipe) : string
+function display_recipe(array $recipe) : array
 {
     $recipe_content = '';
 
@@ -68,6 +68,7 @@ function display_author(string $authorEmail, array $users) : string
             return $author['full_name'] . '(' . $author['age'] . ' ans)';
         }
     }
+    return $author;
 }
 
 function get_recipes(array $recipes) : array
@@ -75,7 +76,7 @@ function get_recipes(array $recipes) : array
     $valid_recipes = [];
 
     foreach($recipes as $recipe) {
-        if ($recipe['is_enabled']) {
+        if ($recipe['is_enabled']==true) {
             $valid_recipes[] = $recipe;
         }
     }
