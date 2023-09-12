@@ -34,7 +34,7 @@
         <?php endforeach ?>
     </div>
 
-    <!-- inclusion du bas de page du site -->
+    <!--  inclusion du bas de page du site -->
     <?php include_once('footer.php'); ?>
 
     <h1>Message bien reçu !</h1>
