@@ -44,7 +44,10 @@
             <p class="card-text"><b>Email</b> : <?php echo $_GET['email']; ?> </p>
             <p class="card-text"><b>Message</b> : <?php echo $_GET['message']; ?> </p>
             <?php
-            if (!isset($_GET['email']) || !isset($_GET['message'])) {
+            if (
+                (!isset($_GET['email']) || !filter_var($_GET['email'], FILTER_VALIDATE_EMAIL))
+                || (!isset($_GET['message']) || empty($_GET['message']))
+            ) {
                 echo ('Il faut un email et un message valides pour soumettre le formulaire.');
                 return;
             } ?>
@@ -53,4 +56,3 @@
 </body>
 
 </html>
-
