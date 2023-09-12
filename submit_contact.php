@@ -14,6 +14,7 @@
     <div class="container">
 
         <?php include_once('header.php'); ?>
+        <!-- <?php var_dump($_GET, $_POST, $_REQUEST); ?> -->
         <h1>Site de recettes</h1>
 
         <!-- inclusion des variables et fonctions -->
@@ -36,13 +37,15 @@
 
     <!--  inclusion du bas de page du site -->
     <?php include_once('footer.php'); ?>
-
+    
     <h1>Message bien reçu !</h1>
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Rappel de vos informations</h5>
+
             <p class="card-text"><b>Email</b> : <?php echo $_GET['email']; ?> </p>
             <p class="card-text"><b>Message</b> : <?php echo $_GET['message']; ?> </p>
+
             <?php
             if (
                 (!isset($_GET['email']) || !filter_var($_GET['email'], FILTER_VALIDATE_EMAIL))
