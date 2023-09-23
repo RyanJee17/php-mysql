@@ -25,14 +25,15 @@
                 <label for="message" class="form-label">Votre message</label>
                 <textarea class="form-control" placeholder="Exprimez vous" id="message" name="message"></textarea>
             </div>
-            <!-- Ajout champ d'upload ! -->
-            <div class="mb-3">
+            
+                <!-- Ajout champ d'upload ! -->
+                <div class="mb-3">
                 <label for="screenshot" class="form-label">Votre capture d'écran</label>
                 <input type="file" class="form-control" id="screenshot" name="screenshot" />
-            </div>
-            <!-- Fin ajout du champ -->
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>
+                </div>
+                <!-- Fin ajout du champ -->
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
         <br />
     </div>
 
