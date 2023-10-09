@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -25,14 +28,25 @@
         <!-- Inclusion du formulaire de connexion -->
         <?php include_once('login.php'); ?>
 
-
+        <?php
+        if ($loginSuccess) {
+            $_SESSION['user'] = $loggedUser;
+        }
+        ?>
         <!-- Si l'utilisateur existe, on affiche les recettes -->
-        <?php if(isset($loggedUser)) : ?>
-            <?php foreach (getRecipes($recipes) as $recipe) : ?>
+        <?php if (isset($_SESSION['user'])): ?>
+            <!-- Afficher les recettes et autres informations pour l'utilisateur connecté -->
+            <?php foreach (getRecipes($recipes) as $recipe): ?>
                 <article>
-                    <h3><?php echo $recipe['title']; ?> </h3>
-                    <div><?php echo $recipe['recipe']; ?> </div>
-                    <i><?php echo displayAuthor($recipe['author'], $users); ?> </i>
+                    <h3>
+                        <?php echo $recipe['title']; ?>
+                    </h3>
+                    <div>
+                        <?php echo $recipe['recipe']; ?>
+                    </div>
+                    <i>
+                        <?php echo displayAuthor($recipe['author'], $users); ?>
+                    </i>
                 </article>
             <?php endforeach ?>
         <?php endif; ?>
